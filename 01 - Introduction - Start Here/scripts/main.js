@@ -20,6 +20,41 @@ var App = React.createClass({
 });
 
 /*
+  Header
+*/
+
+var Header = React.createClass({
+  render : function() {
+    return (
+      <p>Header</p>
+    )
+  }
+});
+
+/*
+  Order
+*/
+
+var Order = React.createClass({
+  render : function() {
+    return (
+      <p>Order</p>
+    )
+  }
+});
+
+/*
+  Inventory
+*/
+var Inventory = React.createClass({
+  render : function() {
+    return (
+      <p>Inventory</p>
+    )
+  }
+});
+
+/*
   StorePicker
   This will let us make the <StorePicker/> component
 */
