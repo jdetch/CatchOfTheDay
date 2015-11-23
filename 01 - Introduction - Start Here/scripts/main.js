@@ -9,7 +9,7 @@ var App = React.createClass({
   render : function() {
     return (
       <div className="catch-of-the-day">
-        <div class="menu">
+        <div className="menu">
           <Header />
         </div>
         <Order />
