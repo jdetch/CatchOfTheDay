@@ -34,7 +34,7 @@ var App = React.createClass({
     })
   },
   renderFish : function(key) {
-    return <li>Welcome {key}</li>
+    return <Fish key={key} index={key} details={this.state.fishes[key]} />
   },
   render : function() {
     return (
@@ -48,6 +48,18 @@ var App = React.createClass({
         <Order />
         <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
       </div>
+    )
+  }
+});
+
+/*
+  Fish
+*/
+
+var Fish = React.createClass({
+  render : function() {
+    return (
+      <li>{this.props.index}</li>
     )
   }
 });
