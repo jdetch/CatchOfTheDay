@@ -15,6 +15,19 @@ var h = require('./helpers');
 */
 
 var App = React.createClass({
+  getInitialState : function(){
+    return {
+      fishes : {},
+      order : {}
+    }
+  },
+  addFish : function(fish) {
+    var timestamp = (new Date()).getTime();
+    // update the state object
+    this.state.fishes['fish-' + timestamp] = fish;
+    // set the state
+    this.setState({ fishes : this.state.fishes });
+  },
   render : function() {
     return (
       <div className="catch-of-the-day">
@@ -22,7 +35,7 @@ var App = React.createClass({
           <Header tagline="Fresh Seafood Market" />
         </div>
         <Order />
-        <Inventory />
+        <Inventory addFish={this.addFish}/>
       </div>
     )
   }
@@ -44,8 +57,8 @@ var AddFishForm = React.createClass({
       desc : this.refs.desc.value,
       image : this.refs.image.value
     }
-
-    console.log(fish)
+    // 3. Add the fish to the App State
+    this.props.addFish(fish);
   },
   render : function() {
     return (
@@ -105,7 +118,9 @@ var Inventory = React.createClass({
       <div>
         <h2>Inventory</h2>
 
-        <AddFishForm />
+        <AddFishForm {...this.props} /> {/* The 'spread' passes all of the props from
+                                        the parent component to the child component
+                                        instead of having to write addFish={this.addFish} */}
       </div>
     )
   }
